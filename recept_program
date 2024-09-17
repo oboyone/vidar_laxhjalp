@@ -1,0 +1,59 @@
+import yaml
+
+with open('ingredients.yaml') as file: #öppna filen och läs in innehållet i en variabel
+    ingredients = yaml.safe_load(file)
+
+with open('recepies.yaml') as file: #öppna filen och läs in innehållet i en variabel
+    recipies = yaml.safe_load(file)
+
+def menu(): #meny funktion
+        strs = ('Enter 1 to list existing ingredients\n'
+                'Enter 2 to list existing recipes\n'
+                'Enter 3 to add a new ingredient\n'
+                'Enter 4 to add a new recipe\n'
+                'Enter 5 to delete a ingredient\n'
+                'Enter 6 to delete a recipe\n'
+                'Enter 7 to exit : ')
+        choice = raw_input(strs)
+        return int(choice) 
+
+def list_ingredients(): #skelett funktioner för varje sak vi vill göra
+    return None
+
+def list_recipies():
+    return None
+
+def add_recipie():
+    return None
+
+def add_ingredient():
+    return None
+
+def delete_recipie():
+    return None
+
+def delete_ingredient(): 
+    return None
+
+while True:          #While loop som körs så länge vi ger input
+    choice = menu()
+    if choice == 1:
+        list_ingredients()
+    elif choice == 2:
+        list_recipies()
+    elif choice == 3:
+        add_ingredient()
+    elif choice == 4:
+        add_recipie()
+    elif choice == 5:
+        delete_ingredient()
+    elif choice == 6:
+        delete_recipie()
+    elif choice == 7:
+        break
+
+with open('ingredients.yml', 'w') as outfile: #skriv variabler till filerna
+    yaml.dump(ingredients, outfile)
+
+with open('recipies.yml', 'w') as outfile: #skriv variabler till filerna
+    yaml.dump(recipies, outfile)
